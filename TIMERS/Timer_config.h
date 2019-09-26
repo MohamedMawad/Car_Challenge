@@ -12,18 +12,19 @@
 #include "MICRO_setting.h"
 
 #define NA  0xFF
+// #define PWM_Half_cycle  128
+// #define PWM_Quarter_cycle 64
 
-/*
-typedef enum{
+/*typedef enum{
 	Timer0,Timer1,Timer2,MAX_num_of_timers
 }timer_type;*/
 
 typedef enum{
-	Dis_INTT,EN_INTT1
+	Dis_INT,EN_INT
 }InT_timer;
 
 typedef enum{
-	Timer0,MAX_num_of_timers
+	Timer0,Timer2,MAX_num_of_timers
 }timer_type;
 
 typedef enum{
@@ -36,24 +37,31 @@ typedef enum{
 
 
 
-typedef enum{
-	Normal,Toggle,Clear,Set
-}No_pwm;
+// typedef enum{
+// 	Normal,Toggle,Clear,Set
+// }No_pwm;
+
+// typedef enum{
+// 	Clear_up_set_down=2,Set_up_clear_down
+// }Phc_pwm;
+
+// typedef enum{
+// 	No_inverting_mode=2,Inverting_mode
+// }F_pwm;
 
 typedef enum{
-	Clear_up_set_down=2,Set_up_clear_down
-}Phc_pwm;
-
-typedef enum{
-	No_inverting_mode=2,Inverting_mode
-}F_pwm;
-
-typedef struct{
-	No_pwm  NPWM;
-	Phc_pwm PHC_PWM;
-	F_pwm   FPWM;
+	NPWM_Normal=0,
+	NPWM_Toggle=1,
+	NPWM_Clear=2,
+	NPWM_Set=3,
+	PHC_PWM_Clear_up_set_down=2,
+	PHC_PWM_Set_up_clear_down=3, 
+    FPWM_No_inverting_mode=2,
+    FPWM_Inverting_mode=3,
 
 }timer_COM;
+
+
 
 
 typedef enum{
@@ -68,25 +76,29 @@ typedef struct{
 
 typedef struct{
     timer_type   T_type;
-	InT_timer    T_INT1;
+    InT_timer    T_INT;
 	timer_clk    T_clk;
 	timer_WGMode T_WGMode;
+	uint8_t      ComVal;
 	timer_COM    T_Compare_out_mode;
 	
+	//uint8_t      compare_val;
+	//uint8_t      PWM_cycle;
 	//ICU_config  ICU_conf;
 
 }Timer_config;
 
 
 
-void Clear_T0(void);
-void T0_ComVal(uint8_t ComVal);
-void En_T0OF_interrupt(void);
-void En_T0COM_interrupt(void);
+
+void Clear_Timers(void);
 
 
 
 extern Timer_config Timers_setup[MAX_num_of_timers];
+
+
+
 
 
 
