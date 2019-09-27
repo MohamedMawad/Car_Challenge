@@ -10,9 +10,15 @@
 #define DIO_CNFG_H_
 
 /*#include <avr/io.h>*/
-#include "AVR_REG_LIB.h"
+#include "MICRO_setting.h"
 
-typedef enum {led,motor,button,sev_seg_1,sev_seg_2,sev_seg_3,sev_seg_4,NUM_OF_PINS}PINS_t;
+typedef enum {
+	motor_left_1,motor_left_2,
+	motor_right_1,motor_right_2,
+	motor2_en,sev_seg_en,
+	sev_seg_1,sev_seg_2,sev_seg_3,
+	sev_seg_4,NUM_OF_PINS
+	}PINS_t;
 
 #define PORT_A		0
 #define PORT_B		1
