@@ -7,13 +7,22 @@
 
 #include "SEV_SEG.h"
 
-
-Std_Func_t sevseg_Display(uint8 display_number)
+/*DIPLAY THE NUMBER THAT YOU GIT BY SPLITIING ITS BINNARY
+ * EX : ENTER 9
+ * BINARY:1001
+ * access every bit and & it with 1
+ * 1 & 1
+ * 0 & 1
+ * 0 & 1
+ * 1 & 1
+ *
+ */
+Std_Func_t sevseg_Display(uint8_t display_number)
 {
 	
 	Std_Func_t retval = OK;
-	uint8 loop_index = 0;
-	uint8 pin_state = LOW;
+	uint8_t loop_index = 0;
+	uint8_t pin_state = LOW;
 	
 	if (display_number <= 9)
 	{
@@ -26,19 +35,19 @@ Std_Func_t sevseg_Display(uint8 display_number)
 			}
 			if (loop_index == 0)
 			{
-				DIO_write(PORT_C,PIN0,pin_state);
+				DIO_write(PORT_B,PIN0,pin_state);
 			}
 			else if (loop_index == 1)
 			{
-				DIO_write(PORT_C,PIN1,pin_state);
+				DIO_write(PORT_B,PIN1,pin_state);
 			}
 			else if (loop_index == 2)
 			{
-				DIO_write(PORT_C,PIN2,pin_state);
+				DIO_write(PORT_B,PIN2,pin_state);
 			}
 			else 
 			{
-				DIO_write(PORT_C,PIN3,pin_state);
+				DIO_write(PORT_B,PIN3,pin_state);
 			}
 			
 		}

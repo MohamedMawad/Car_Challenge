@@ -8,12 +8,12 @@
 
 #ifndef SEV_SEG_H_
 #define SEV_SEG_H_
-#include "data_types.h"
+
 #include "DIO.h"
 #define NUM_OF_7_segment_PINS 4
 
 
-Std_Func_t sevseg_Display(uint8 display_number);
+Std_Func_t sevseg_Display(uint8_t display_number);
 
 
 #endif /* SEV_SEG_H_ */
