@@ -8,46 +8,32 @@
 #ifndef TIMER_CONFIG_H_
 #define TIMER_CONFIG_H_
 
-#include "std_types.h"
+
 #include "MICRO_setting.h"
 
-#define NA  0xFF
-// #define PWM_Half_cycle  128
-// #define PWM_Quarter_cycle 64
+#define NA 0xff
 
-/*typedef enum{
+typedef enum{
 	Timer0,Timer1,Timer2,MAX_num_of_timers
-}timer_type;*/
+}timer_type;
 
 typedef enum{
 	Dis_INT,EN_INT
 }InT_timer;
 
-typedef enum{
-	Timer0,Timer2,MAX_num_of_timers
-}timer_type;
+
 
 typedef enum{
 	NO_clk,F_cpu_clk,F_cpu_8,F_cpu_64,F_cpu_256,F_cpu_1024,Exter_F_clk,Exter_R_clk
 }timer_clk;
 
 typedef enum{
-	WG_Normal,WG_PWM_PHC,WG_CTC,WG_FPWM
+	WG_Normal,WG_PWM_PHC,WG_CTC,WG_FPWM,WG_T1CTC=4
 }timer_WGMode;
 
 
 
-// typedef enum{
-// 	Normal,Toggle,Clear,Set
-// }No_pwm;
 
-// typedef enum{
-// 	Clear_up_set_down=2,Set_up_clear_down
-// }Phc_pwm;
-
-// typedef enum{
-// 	No_inverting_mode=2,Inverting_mode
-// }F_pwm;
 
 typedef enum{
 	NPWM_Normal=0,
@@ -82,8 +68,6 @@ typedef struct{
 	uint8_t      ComVal;
 	timer_COM    T_Compare_out_mode;
 	
-	//uint8_t      compare_val;
-	//uint8_t      PWM_cycle;
 	//ICU_config  ICU_conf;
 
 }Timer_config;
