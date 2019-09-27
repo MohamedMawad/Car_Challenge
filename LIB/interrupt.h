@@ -2,7 +2,7 @@
  * interrupt.h
  *
  *  Created on: ??þ/??þ/????
- *      Author: eslam_NE
+ *      Author: M_MOAWAD
  */
 
 #ifndef INTERRUPT_H_
@@ -34,7 +34,7 @@ void __vector_20 (void) __attribute__((signal,__INTR_ATTRS));
 #define ISR_INT1		 __vector_2
 #define ISR_INT2		 __vector_3 
 #define ISR_TIMER2_COMP  __vector_4
-#define ISR_TIMER2_COMP  __vector_5 
+#define ISR_TIMER2_OVF   __vector_5 
 #define ISR_TIMER1_CAPT  __vector_6 
 #define ISR_TIMER1_COMPA __vector_7 
 #define ISR_TIMER1_COMPB __vector_8 
@@ -52,6 +52,8 @@ void __vector_20 (void) __attribute__((signal,__INTR_ATTRS));
 #define ISR_SPM_RDY      __vector_20 
 
 
+void sei (void);
 
+void cli (void);
 
 #endif /* INTERRUPT_H_ */
